@@ -274,8 +274,8 @@ body::before{
 
 /* Result card */
 .sf-result-card{
-  background:var(--card-bg,var(--surface));
-  border:1px solid var(--card-border,var(--border));
+  background:var(--surface);
+  border:1px solid var(--border);
   border-radius:18px;overflow:hidden;
   box-shadow:0 4px 18px var(--shadow-s),0 2px 8px var(--shadow-g);
   animation:cardIn 0.4s ease both;
@@ -325,8 +325,8 @@ body::before{
 .sf-companions{
   grid-column:1 / -1;grid-row:2;
   padding:1rem 1.6rem 1.4rem;
-  background:var(--comp-bg,rgba(242,221,224,0.2));
-  border-top:1px solid var(--card-border,var(--border));
+  background:rgba(242,221,224,0.2);
+  border-top:1px solid var(--border);
   margin-top:1rem;
 }
 .sf-comp-label{
@@ -334,11 +334,11 @@ body::before{
   color:var(--ink-muted);margin-bottom:0.8rem;
   display:flex;align-items:center;gap:0.6rem;
 }
-.sf-comp-label::after{content:'';flex:1;height:1px;background:var(--card-border,var(--border));}
+.sf-comp-label::after{content:'';flex:1;height:1px;background:var(--border);}
 .sf-pills{display:flex;flex-wrap:wrap;gap:0.45rem;}
 .sf-pill{
   background:rgba(255,255,255,0.7);
-  border:1px solid var(--pill-border,var(--border));
+  border:1px solid var(--border);
   border-radius:30px;padding:0.28rem 0.85rem;
   font-family:var(--font-body);font-size:0.85rem;color:var(--ink-soft);
   display:flex;align-items:center;gap:0.38rem;
@@ -495,6 +495,47 @@ body::before{
 .abtn-close{background:var(--border);border:none;color:var(--ink);}
 .abtn-close:hover{background:var(--nude-mid);}
 
+/* Table Sketch */
+.sf-table-sketch{
+  grid-column:1 / -1;
+  padding:1rem 1.6rem 1.4rem;
+  background:var(--comp-bg,rgba(242,221,224,0.2));
+  border-top:1px solid var(--card-border,var(--border));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.7rem;
+}
+.sf-sketch-label{
+  font-family:var(--font-caps);font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--ink-muted);
+  display:flex;align-items:center;gap:0.6rem;width:100%;
+}
+.sf-sketch-label::after{content:'';flex:1;height:1px;background:var(--card-border,var(--border));}
+.sf-sketch-img{
+  width:100%;max-width:420px;
+  border-radius:10px;
+  border:1.5px solid var(--card-border,var(--border));
+  box-shadow:0 2px 10px var(--shadow-s);
+  display:block;
+}
+.sf-sketch-placeholder{
+  width:100%;max-width:420px;
+  height:200px;
+  border-radius:10px;
+  border:1.5px dashed var(--card-border,var(--border));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.5rem;
+  background:rgba(255,255,255,0.5);
+}
+.sf-sketch-placeholder-icon{
+  font-size:2rem;color:var(--dot-color);opacity:0.5;
+}
+.sf-sketch-placeholder-text{
+  font-family:var(--font-serif);font-style:italic;font-size:0.9rem;color:var(--ink-muted);
+  text-align:center;line-height:1.5;
+}
+
 /* MOBILE */
 @media(max-width:640px){
   .sf-layout{
@@ -531,34 +572,6 @@ body::before{
     <div class="sf-sidebar-date">May 14, 2026</div>
     <div class="sf-sidebar-divider"></div>
 
-    <div class="sf-legend">
-      <div class="sf-legend-title">Colour Guide</div>
-
-      <div class="sf-legend-table-group">
-        <div class="sf-legend-table-label">Table 1</div>
-        <div class="sf-legend-swatches">
-          <span class="sf-legend-swatch nude" title="Nude"></span>
-          <span class="sf-legend-swatch pecan" title="Pecan (Dark Brown)"></span>
-        </div>
-      </div>
-
-      <div class="sf-legend-table-group">
-        <div class="sf-legend-table-label">Table 2</div>
-        <div class="sf-legend-swatches">
-          <span class="sf-legend-swatch misty-pink" title="Misty Pink"></span>
-          <span class="sf-legend-swatch taupe" title="Taupe"></span>
-        </div>
-      </div>
-
-      <div class="sf-legend-table-group">
-        <div class="sf-legend-table-label">Table 3</div>
-        <div class="sf-legend-swatches">
-          <span class="sf-legend-swatch champagne" title="Champagne"></span>
-          <span class="sf-legend-swatch blush" title="Blush"></span>
-          <span class="sf-legend-swatch light-champagne" title="Light Champagne"></span>
-        </div>
-      </div>
-    </div>
   </aside>
 
   <!-- HEADER -->
@@ -689,7 +702,28 @@ const COLOR_LABELS = {
 /* ── DEFAULT GUEST DATA from xlsx ── */
 const DEFAULT_GUESTS = [{"name": "KRYZYTH SHAINE ROSETE", "table": "Table 1", "color": "nude", "companions": []}, {"name": "MINDA ALMEN", "table": "Table 1", "color": "nude", "companions": []}, {"name": "GROOM", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "BRIDE", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "ANTONIO DUKE ALDABA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "MIKE LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "ALEXANDRIA MARGARETTE REVITA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "ESTHER ALMEN", "table": "Table 1", "color": "nude", "companions": []}, {"name": "RODOLFO DELANTE", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "FLORENTINA LARRAGA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "ANTONIO ADOLFO ALDABA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "FE IVY LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "LEONA IZABELA REVITA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JOSEPH ULDARICO SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "RHODESSA REVITA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "FLORESCA DELANTE", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "CHERYL ANN ALDABA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "MARKY LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "LOGAN DELANTE", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JOY MARIE SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "GOV. ROGELIO J. ESPINA, MD", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "DR. CECIL M. ESPINA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "ARIANNA BIENNE ALDABA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "RONNIE LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "RO-ANN LEDESMA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JANNESCE MAIRI SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "FR. VIC JAPSON", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "ROSARIO R. ALMEN", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "ANTONETTE THELMA ALDABA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "CHIBOY LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "LUIGI LEDESMA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JASCHIA MARIAH SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "SOFRONIO S. AGUSTIN", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "AMELIA V. LARRAGA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "JON CASTILLO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "MALOU LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "LUCHO LEDESMA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JOEMARI SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "ENRICO T. LARRAGA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "CYNTHIA D. LARRAGA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "BASILIO JUSTINIANO JR", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "JOVI LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "MAYA BORROMEO", "table": "Table 1", "color": "nude", "companions": []}, {"name": "DORIE SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "EARL R. ALMEN", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "MARIA THERESA C. URQUICO", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "JUDETH FEGI", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "CHILOU LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "YSABEL MIRALLES", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JEON NARXISO SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "RODOLFO A. MIRALLES", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "MARY GRACE M. MIRALLES", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "KYLA ANDRADE", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "FERGIE LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "KELVI MIRALLES", "table": "Table 1", "color": "nude", "companions": []}, {"name": "AMBER DACDAC", "table": "Table 1", "color": "nude", "companions": []}, {"name": "ARNOLD B. ALAGON", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "MA. LOURDES A. ALAGON", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "THOMAS JOSEPH LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "JIMBO LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "BEATRIZ JUAREZ (MAMA BETBET)", "table": "Table 1", "color": "nude", "companions": []}, {"name": "ENGR. KRIMSON BERNARD T. LUMBAB", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "CORINNE JO L. ANDRADE", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "CIPRIANNE LARRAGA", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "KAYE MARGALLO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "RITZI SIA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "CHRISTIAN GERALD COLANTRO", "table": "Table 1", "color": "nude", "companions": []}, {"name": "VICE MAYOR THEODORE D. CORDETA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "CECILIA G. CORDETA", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "GIRLIE ANIDO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "BENJIE ANDRADE", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "MARILOU ALMEN", "table": "Table 1", "color": "nude", "companions": []}, {"name": "LYKA COLANTRO", "table": "Table 1", "color": "nude", "companions": []}, {"name": "TEOFILO R. GERVACIO JR.", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "MARILYN C. GERVACIO", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "AMARA HEART ALAGON", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "EMILY ANIDO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "RUBY NEDRUDA", "table": "Table 1", "color": "nude", "companions": []}, {"name": "JANET URQUICO", "table": "Table 1", "color": "nude", "companions": []}, {"name": "AMIEL S. CERO", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "LUZ A. AMPOLOQUIO", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "JESSUEL ANIDO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "JAYMEE ANIDO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "JUN HIDALGO", "table": "Table 1", "color": "nude", "companions": []}, {"name": "LANIE CALILUNG", "table": "Table 1", "color": "nude", "companions": []}, {"name": "DR. ARTHUR A. ONG", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "ESTER D. ALCAZAR", "table": "Table 2", "color": "misty-pink", "companions": []}, {"name": "JULIA ANIDO", "table": "Table 3", "color": "light-champagne", "companions": []}, {"name": "ENGR. TEODORO CANETE JR", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "MEHNIS LITANG (MINERVA)", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "MATTHEW NANQUIL", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "ELOISE MELLONEY EVARDONE", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "JADE ESPERAS", "table": "Table 3", "color": "blush", "companions": []}, {"name": "PHENILYN MITMIT", "table": "Table 3", "color": "blush", "companions": []}, {"name": "SHENNA AGOSTO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "ROBERT PAULETE DOBLE (INTOY)", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "NEIL OPINIANO", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "ROLAND BOIE EVARDONE", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "EMMANUEL CHONG", "table": "Table 3", "color": "blush", "companions": []}, {"name": "MAEGAN LELIS", "table": "Table 3", "color": "blush", "companions": []}, {"name": "NOEL NANQUIL", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "EDGAR NARTEA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JUNY NIONES", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "YVES DICMA DACAYMAT", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "MONICAR CHONG", "table": "Table 3", "color": "blush", "companions": []}, {"name": "DINES BACO", "table": "Table 3", "color": "blush", "companions": []}, {"name": "VINCE NANQUIL", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "EDITH NARTEA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "DAVE DEVARAS", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "MARY JILL PALOMINO", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "MARK AGNER", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JESON LAGUNZAD", "table": "Table 3", "color": "blush", "companions": []}, {"name": "ERWIN TABOSO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JAKE ROTAERO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "NIKKI DACALOS", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "LILLIAN MONTEJO", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "ARNOLD BALAIS", "table": "Table 3", "color": "blush", "companions": []}, {"name": "DR. NOLEEN AYHON", "table": "Table 3", "color": "blush", "companions": []}, {"name": "MALOU SIA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "CLYDE ALMEN", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "MARIELLE NANQUIL", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "KARLA CHU", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "CHRISTOPHER DELADIA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "DR. VLADEMIR FAMI", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JASON RONDINA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JHUNN EMMANUEL ALMEN", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JEROME BOHOL", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "WILFRED LACANDAZO", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "ARMAN ESTRELLADO", "table": "Table 3", "color": "blush", "companions": []}, {"name": "DR. MAIZYCHELLE FAMI", "table": "Table 3", "color": "blush", "companions": []}, {"name": "NORMA VELOSO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "ANTONIO M. NAPALIT", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "ALEJANDRO ALEXI ALAMIS", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "NEFRETHERE CELADA", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "SHERWIN HERNANDEZ", "table": "Table 3", "color": "blush", "companions": []}, {"name": "DR. WICHELLE TAN", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JESIL NIERRAS", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "WILLIARD TACSAY", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "SARAH MAE ALAMIS", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "DAYANN PORRAL", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "LARRY RAMIREZ", "table": "Table 3", "color": "blush", "companions": []}, {"name": "DR. NELMARC INDENCIA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "ERRIC LACABA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "DIDAY TACSAY", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "DR. CHRISTIAN DOMINIQUE PORTULA", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "DEBBIE VIÑAS", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "JUNEFF NIERVES", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JOBO CONDES", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JULIE LACABA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "PERRY ROSARIO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JAN PRIMO PORMIDA", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "KRYSTEL IBDAO", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "HARVY MEJITO", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JAMELLA VIBORA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "BENJIE RETUERTO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JOEL FELICIANO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "TRIXIA PORMIDA", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "MICHELLE MACASIL", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "MARCIANO DOCIL", "table": "Table 3", "color": "blush", "companions": []}, {"name": "ANNA GRACE COLANTA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "JC ESTREMERA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JOEMAR ROSANTO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JAMES NIONES", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "RIZZI SUAN", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "BRENDON TECSON", "table": "Table 3", "color": "blush", "companions": []}, {"name": "GERALDINE REAS", "table": "Table 3", "color": "blush", "companions": []}, {"name": "FRANCIS ADRIAN ALMERIA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JASON VERANO", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "ENGR. MARK JASON NIONES", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "KRISTINE VIANETTE BERINGEUL", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "ALOHA QUILANETA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "MARIAN ADVINCULA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "MA. CORAZON AQUINO TALAGTAG", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "RJ SIA", "table": "Table 1", "color": "pecan", "companions": []}, {"name": "JAD EDRIANO", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "KRISTINA DOMINISE", "table": "Table 2", "color": "taupe", "companions": []}, {"name": "PREMIE OLIVA", "table": "Table 3", "color": "blush", "companions": []}, {"name": "KD ESPERON", "table": "Table 3", "color": "blush", "companions": []}, {"name": "ENA TORRES", "table": "Table 3", "color": "champagne", "companions": []}, {"name": "ADNEY TORRES", "table": "Table 3", "color": "champagne", "companions": []}, {"name": "LYN TORRES", "table": "Table 3", "color": "champagne", "companions": []}];
 
-/* ── STATE ── */
+/* ── TABLE SKETCH CONFIG ──
+   Replace the src values below with your actual sketch image URLs.
+   Each color code maps to one sketch image showing the guest's seat area.
+   
+   Supported formats: JPG, PNG, WebP, or any image URL (Cloudinary, etc.)
+   
+   Example (Cloudinary):
+     nude: 'https://res.cloudinary.com/YOUR_CLOUD/image/upload/table1_nude_section.jpg',
+   
+   Leave as empty string '' to show a placeholder instead.
+*/
+const TABLE_SKETCHES = {
+  'nude':             '1.png',   // Table 1 – Nude section sketch
+  'pecan':            '2.png',   // Table 1 – Pecan section sketch
+  'misty-pink':       '3.png',   // Table 2 – Misty Pink section sketch
+  'taupe':            '4.png',   // Table 2 – Taupe section sketch
+  'champagne':        '6.png',   // Table 3 – Champagne section sketch
+  'blush':            '6.png',   // Table 3 – Blush section sketch
+  'light-champagne':  '5.png',   // Table 3 – Light Champagne section sketch
+};
+
+
 const LOCAL_KEY = 'petite_roy_seatfinder_v2';
 const ADMIN_PASSWORD = 'petiteroy2026';
 
@@ -737,27 +771,33 @@ function sfSearch() {
   }
 
   results.innerHTML = matches.map((g, i) => {
-    const colorClass = 'color-' + (g.color || 'nude');
-    const colorLabel = COLOR_LABELS[g.color] || (g.color || 'Nude');
     const companions = g.companions || [];
     const compHTML = companions.length
       ? `<div class="sf-companions">
           <div class="sf-comp-label">Seated with</div>
           <div class="sf-pills">${companions.map(c => `<span class="sf-pill">${esc(c)}</span>`).join('')}</div>
         </div>` : '';
-    return `<div class="sf-result-card ${colorClass}" style="animation-delay:${i*70}ms">
+    const sketchSrc = TABLE_SKETCHES[g.color] || '';
+    const sketchHTML = `<div class="sf-table-sketch">
+      <div class="sf-sketch-label">Your Seat Location</div>
+      ${sketchSrc
+        ? `<img class="sf-sketch-img" src="${esc(sketchSrc)}" alt="Table sketch" loading="lazy"/>`
+        : `<div class="sf-sketch-placeholder">
+            <div class="sf-sketch-placeholder-icon">✦</div>
+            <div class="sf-sketch-placeholder-text">Table sketch coming soon.</div>
+           </div>`
+      }
+    </div>`;
+    return `<div class="sf-result-card" style="animation-delay:${i*70}ms">
       <div class="sf-card-left">
         <div class="sf-card-label">Your Name</div>
-        <div class="sf-card-name"><span class="sf-color-dot"></span>${esc(g.name)}</div>
-        <div class="sf-color-group-badge">
-          <span class="sf-color-group-swatch"></span>
-          ${esc(colorLabel)}
-        </div>
+        <div class="sf-card-name">${esc(g.name)}</div>
       </div>
       <div class="sf-card-badge-wrap">
         <span class="sf-badge">${esc(g.table)}</span>
       </div>
       ${compHTML}
+      ${sketchHTML}
     </div>`;
   }).join('');
 }
@@ -807,12 +847,10 @@ function renderTables() {
     return a.color.localeCompare(b.color);
   });
   grid.innerHTML = sorted.map((g, i) => {
-    const colorLabel = COLOR_LABELS[g.color] || g.color;
     const rows = g.names.map(n => `<div class="table-guest-row"><div class="table-guest-dot"></div><span class="table-guest-name">${esc(n)}</span></div>`).join('');
-    return `<div class="table-card color-${g.color}" style="animation-delay:${i*40}ms">
+    return `<div class="table-card" style="animation-delay:${i*40}ms">
       <div class="table-card-header">
         <span class="table-card-name">${esc(g.table)}</span>
-        <span class="table-card-count" style="font-size:0.68rem;color:var(--ink-muted);font-style:italic;">${esc(colorLabel)}</span>
       </div>
       <div class="table-card-guests">${rows}</div>
     </div>`;
